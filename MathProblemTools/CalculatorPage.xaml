@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="MathProblemTools.CalculatorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Name="buttonStyle" TargetType="Button">
+            <Setter Property="Height" Value="75" />
+            <Setter Property="Width" Value="75" />
+        </Style>
+    </Page.Resources>
+
+    <RelativePanel>
+        <StackPanel
+            x:Name="Nums1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Button Click="Calculate" Style="{StaticResource buttonStyle}">7</Button>
+            <Button Click="Calculate" Style="{StaticResource buttonStyle}">4</Button>
+            <Button Click="Calculate" Style="{StaticResource buttonStyle}">1</Button>
+        </StackPanel>
+        <StackPanel x:Name="Nums2" RelativePanel.RightOf="Nums1">
+            <Button Click="Calculate" Style="{StaticResource buttonStyle}">8</Button>
+            <Button Click="Calculate" Style="{StaticResource buttonStyle}">5</Button>
+            <Button Click="Calculate" Style="{StaticResource buttonStyle}">2</Button>
+        </StackPanel>
+        <StackPanel RelativePanel.RightOf="Nums2">
+            <Button Click="Calculate" Style="{StaticResource buttonStyle}">9</Button>
+            <Button Click="Calculate" Style="{StaticResource buttonStyle}">6</Button>
+            <Button Click="Calculate" Style="{StaticResource buttonStyle}">3</Button>
+        </StackPanel>
+
+
+    </RelativePanel>
+</Page>

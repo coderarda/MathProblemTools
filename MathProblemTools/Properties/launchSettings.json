@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MathProblemTools (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "MathProblemTools (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
