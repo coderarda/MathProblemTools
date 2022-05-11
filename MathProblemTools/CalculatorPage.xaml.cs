@@ -28,9 +28,15 @@ namespace MathProblemTools
             this.InitializeComponent();
         }
 
-        private void Calculate(object sender, RoutedEventArgs e)
+        private void Write(object sender, RoutedEventArgs e)
         {
+            Button b = (Button)sender;
+            Numbers.Text += b.Content;
+        }
 
+        private void Calculate(object sender, RoutedEventArgs e) 
+        {
+            
         }
     }
 }

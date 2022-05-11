@@ -25,8 +25,8 @@ namespace MathProblemTools
     {
         public MainWindow()
         {
-            this.InitializeComponent();
-            this.MainFrame.Navigate(typeof(CalculatorPage));
+            InitializeComponent();
+            MainFrame.Navigate(typeof(CalculatorPage));
         }
     }
 }
