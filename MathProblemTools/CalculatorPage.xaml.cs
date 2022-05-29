@@ -1,17 +1,5 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -23,6 +11,7 @@ namespace MathProblemTools
     /// </summary>
     public sealed partial class CalculatorPage : Page
     {
+        private bool calculateClicked = false;
         public CalculatorPage()
         {
             this.InitializeComponent();
@@ -30,13 +19,58 @@ namespace MathProblemTools
 
         private void Write(object sender, RoutedEventArgs e)
         {
+            if (calculateClicked)
+            {
+                Numbers.Text = "";
+            }
+            calculateClicked = false;
+
             Button b = (Button)sender;
-            Numbers.Text += b.Content;
+
+            if (
+                (string)b.Content == "x"
+                || (string)b.Content == "-"
+                || (string)b.Content == "÷"
+                || (string)b.Content == "+"
+            )
+            {
+                Numbers.Text += " " + b.Content + " ";
+            }
+            else
+                Numbers.Text += b.Content;
         }
 
-        private void Calculate(object sender, RoutedEventArgs e) 
+        private void Calculate(object sender, RoutedEventArgs e)
         {
-            
+            calculateClicked = true;
+
+            if (Numbers.Text.Contains('x'))
+            {
+                string[] s = Numbers.Text.Replace(" ", "").Split("x");
+                Numbers.Text = (int.Parse(s[0]) * int.Parse(s[1])).ToString();
+            }
+            else if (Numbers.Text.Contains('+'))
+            {
+                string[] s = Numbers.Text.Replace(" ", "").Split("+");
+                Numbers.Text = (int.Parse(s[0]) + int.Parse(s[1])).ToString();
+            }
+            else if (Numbers.Text.Contains('÷'))
+            {
+                string[] s = Numbers.Text.Replace(" ", "").Split("÷");
+                Numbers.Text = (int.Parse(s[0]) / int.Parse(s[1])).ToString();
+            }
+            else if (Numbers.Text.Contains('-'))
+            {
+                string[] s = Numbers.Text.Replace(" ", "").Split("-");
+                Numbers.Text = (int.Parse(s[0]) - int.Parse(s[1])).ToString();
+            }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e) { }
+
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            Numbers.Text = "";
         }
     }
 }

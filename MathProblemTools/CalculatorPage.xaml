@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loaded="Page_Loaded"
     mc:Ignorable="d">
     <Page.Resources>
         <Style x:Name="buttonStyle" TargetType="Button">
@@ -13,39 +14,47 @@
         </Style>
     </Page.Resources>
 
-    <StackPanel Orientation="Vertical">
-        <TextBox IsReadOnly="True" x:Name="Numbers" MaxWidth="300" MaxHeight="24"></TextBox>
-        <RelativePanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel
-            x:Name="Nums1"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center">
-                <Button Click="Write" Style="{StaticResource buttonStyle}">7</Button>
-                <Button Click="Write" Style="{StaticResource buttonStyle}">4</Button>
-                <Button Click="Write" Style="{StaticResource buttonStyle}">1</Button>
-            </StackPanel>
-            <StackPanel x:Name="Nums2" RelativePanel.RightOf="Nums1">
-                <Button Click="Write" Style="{StaticResource buttonStyle}">8</Button>
-                <Button Click="Write" Style="{StaticResource buttonStyle}">5</Button>
-                <Button Click="Write" Style="{StaticResource buttonStyle}">2</Button>
-            </StackPanel>
-            <StackPanel x:Name="Nums3" RelativePanel.RightOf="Nums2">
-                <Button Click="Write" Style="{StaticResource buttonStyle}">9</Button>
-                <Button Click="Write" Style="{StaticResource buttonStyle}">6</Button>
-                <Button Click="Write" Style="{StaticResource buttonStyle}">3</Button>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" RelativePanel.Below="Nums2">
-                <Button Style="{StaticResource buttonStyle}">C</Button>
-                <Button Click="Write" Style="{StaticResource buttonStyle}">0</Button>
-                <Button Click="Write" Style="{StaticResource buttonStyle}">&#960;</Button>
-            </StackPanel>
-            <StackPanel x:Name="UtilButtons" RelativePanel.RightOf="Nums3">
-                <Button Click="Write" Style="{StaticResource buttonStyle}">+</Button>
-                <Button Click="Write" Style="{StaticResource buttonStyle}">-</Button>
-                <Button Click="Write" Style="{StaticResource buttonStyle}">x</Button>
-                <Button Click="Write" Style="{StaticResource buttonStyle}">&#247;</Button>
-                <Button Click="Calculate" Style="{StaticResource buttonStyle}">=</Button>
-            </StackPanel>
-        </RelativePanel>
-    </StackPanel>
+    <RelativePanel x:Name="rootRelativePanel">
+        <StackPanel x:Name="OperationRegion" Orientation="Vertical">
+            <TextBlock x:Name="Numbers" FontSize="24" />
+            <RelativePanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel
+                    x:Name="Nums1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">7</Button>
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">4</Button>
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">1</Button>
+                </StackPanel>
+                <StackPanel x:Name="Nums2" RelativePanel.RightOf="Nums1">
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">8</Button>
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">5</Button>
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">2</Button>
+                </StackPanel>
+                <StackPanel x:Name="Nums3" RelativePanel.RightOf="Nums2">
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">9</Button>
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">6</Button>
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">3</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" RelativePanel.Below="Nums2">
+                    <Button
+                        x:Name="ClearButton"
+                        Click="ClearButton_Click"
+                        Style="{StaticResource buttonStyle}">
+                        C
+                    </Button>
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">0</Button>
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">&#960;</Button>
+                </StackPanel>
+                <StackPanel x:Name="UtilButtons" RelativePanel.RightOf="Nums3">
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">+</Button>
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">-</Button>
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">x</Button>
+                    <Button Click="Write" Style="{StaticResource buttonStyle}">&#247;</Button>
+                    <Button Click="Calculate" x:Name="CalculateButton" Style="{StaticResource buttonStyle}">=</Button>
+                </StackPanel>
+            </RelativePanel>
+        </StackPanel>
+    </RelativePanel>
+
 </Page>
