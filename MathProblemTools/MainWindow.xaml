@@ -5,9 +5,15 @@
     xmlns:local="using:MathProblemTools"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    x:Name="MainWindowName">
 
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Frame HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="MainFrame" Height="{x:Bind CoreWindow.Bounds.Height}" Width="{x:Bind CoreWindow.Bounds.Width}"></Frame>
-    </Grid>
+    <RelativePanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <NavigationView Background="DarkGreen" HorizontalAlignment="Left" IsPaneOpen="False" x:Name="NavView" ItemInvoked="NavView_ItemInvoked" PaneDisplayMode="LeftCompact" >
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Home" Content="Home"/>
+            </NavigationView.MenuItems>
+        </NavigationView>
+        <Frame RelativePanel.RightOf="NavView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="MainFrame"></Frame>
+    </RelativePanel>
 </Window>

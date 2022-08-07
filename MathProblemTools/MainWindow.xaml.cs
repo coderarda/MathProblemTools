@@ -28,5 +28,15 @@ namespace MathProblemTools
             InitializeComponent();
             MainFrame.Navigate(typeof(CalculatorPage));
         }
+
+        private void NavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            switch(args.InvokedItemContainer.Content)
+            {
+                case "Home":
+                    MainFrame.Navigate(typeof(CalculatorPage));
+                    break;
+            }
+        }
     }
 }

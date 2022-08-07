@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Background="DarkGreen"
     Loaded="Page_Loaded"
     mc:Ignorable="d">
     <Page.Resources>
@@ -14,13 +14,13 @@
         </Style>
     </Page.Resources>
 
-    <RelativePanel x:Name="rootRelativePanel">
-        <StackPanel x:Name="OperationRegion" Orientation="Vertical">
+    <RelativePanel x:Name="rootRelativePanel" HorizontalAlignment="Stretch">
+        <StackPanel x:Name="OperationRegion" Margin="100 25 0 0" Orientation="Vertical">
             <TextBlock x:Name="Numbers" FontSize="24" />
-            <RelativePanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <RelativePanel HorizontalAlignment="Stretch" VerticalAlignment="Center">
                 <StackPanel
                     x:Name="Nums1"
-                    HorizontalAlignment="Center"
+                    HorizontalAlignment="Stretch"
                     VerticalAlignment="Center">
                     <Button Click="Write" Style="{StaticResource buttonStyle}">7</Button>
                     <Button Click="Write" Style="{StaticResource buttonStyle}">4</Button>
