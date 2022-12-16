@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Background="DarkGreen"
     Loaded="Page_Loaded"
     mc:Ignorable="d">
     <Page.Resources>
@@ -15,8 +14,15 @@
     </Page.Resources>
 
     <RelativePanel x:Name="rootRelativePanel" HorizontalAlignment="Stretch">
-        <StackPanel x:Name="OperationRegion" Margin="100 25 0 0" Orientation="Vertical">
-            <TextBlock x:Name="Numbers" FontSize="24" />
+        <StackPanel
+            x:Name="OperationRegion"
+            Margin="100,25,0,0"
+            Orientation="Vertical">
+            <TextBox
+                x:Name="Numbers"
+                BorderThickness="3"
+                FontSize="24"
+                IsReadOnly="True" />
             <RelativePanel HorizontalAlignment="Stretch" VerticalAlignment="Center">
                 <StackPanel
                     x:Name="Nums1"
@@ -51,7 +57,12 @@
                     <Button Click="Write" Style="{StaticResource buttonStyle}">-</Button>
                     <Button Click="Write" Style="{StaticResource buttonStyle}">x</Button>
                     <Button Click="Write" Style="{StaticResource buttonStyle}">&#247;</Button>
-                    <Button Click="Calculate" x:Name="CalculateButton" Style="{StaticResource buttonStyle}">=</Button>
+                    <Button
+                        x:Name="CalculateButton"
+                        Click="Calculate"
+                        Style="{StaticResource buttonStyle}">
+                        =
+                    </Button>
                 </StackPanel>
             </RelativePanel>
         </StackPanel>

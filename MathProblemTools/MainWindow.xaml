@@ -2,18 +2,37 @@
     x:Class="MathProblemTools.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MathProblemTools"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:MathProblemTools"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    x:Name="MainWindowName">
+    x:Name="MainWindowName"
+    mc:Ignorable="d">
 
-    <RelativePanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <NavigationView Background="DarkGreen" HorizontalAlignment="Left" IsPaneOpen="False" x:Name="NavView" ItemInvoked="NavView_ItemInvoked" PaneDisplayMode="LeftCompact" >
+    <RelativePanel
+        x:Name="root"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch">
+        <NavigationView
+            x:Name="NavView"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            IsPaneOpen="False"
+            ItemInvoked="NavView_ItemInvoked"
+            PaneDisplayMode="LeftCompact"
+            SelectionChanged="NavView_SelectionChanged">
             <NavigationView.MenuItems>
-                <NavigationViewItem Icon="Home" Content="Home"/>
+                <NavigationViewItem
+                    Content="Home"
+                    Icon="Home"
+                    IsSelected="True" />
+                <NavigationViewItem Content="Graph" Icon="More"/>
             </NavigationView.MenuItems>
+            <Frame
+                x:Name="MainFrame"
+                Width="{x:Bind Bounds.Width}"
+                Height="{x:Bind Bounds.Height}"
+                VerticalAlignment="Stretch"
+                RelativePanel.RightOf="NavView" />
         </NavigationView>
-        <Frame RelativePanel.RightOf="NavView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="MainFrame"></Frame>
     </RelativePanel>
 </Window>
