@@ -23,6 +23,11 @@ namespace MathProblemTools {
                         MainFrame.Navigate(typeof(CalculatorPage));
                     }
                     break;
+                case "Graph":
+                    if (args.InvokedItemContainer.Content.ToString() != selectedItemName) {
+                        MainFrame.Navigate(typeof(GraphPage));
+                    }
+                    break;
             }
         }
 

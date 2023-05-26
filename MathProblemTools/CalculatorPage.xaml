@@ -59,6 +59,7 @@
                     <Button Click="Write" Style="{StaticResource buttonStyle}">&#247;</Button>
                     <Button
                         x:Name="CalculateButton"
+                        Background="Blue"
                         Click="Calculate"
                         Style="{StaticResource buttonStyle}">
                         =

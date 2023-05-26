@@ -1,31 +1,31 @@
-// Copyright (c) Microsoft Corporation and Contributors.
-// Licensed under the MIT License.
-
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
+using SkiaSharp;
+using SkiaSharp.Internals;
+using SkiaSharp.Views.Windows;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
-namespace MathProblemTools {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class GraphPage : Page {
+namespace MathProblemTools
+{
+    public partial class GraphPage : Page {
         public GraphPage() {
-            this.InitializeComponent();
+            InitializeComponent();
+        }
+
+        private bool clicked = false;
+
+        private void DrawEquation(object sender, RoutedEventArgs e) {
+            clicked = true;
+        }
+
+        private void OnCanvasPaintSurface(object sender, SKPaintSurfaceEventArgs e) {
+            for (int i = 0; i < 4; i++) {
+                e.Surface.Draw(e.Surface.Canvas, i, i, new SKPaint {
+                    Color = SKColors.Blue,
+                    Style = SKPaintStyle.Stroke,
+                    StrokeWidth = 20,
+                });
+            }
         }
     }
 }
